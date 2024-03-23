@@ -17,7 +17,6 @@ import expo.modules.updates.launcher.DatabaseLauncher
 import expo.modules.updates.launcher.Launcher
 import expo.modules.updates.loader.FileDownloader
 import expo.modules.updates.selectionpolicy.SelectionPolicy
-import expo.modules.updates.statemachine.UpdatesStateEvent
 import java.io.File
 import java.lang.ref.WeakReference
 
@@ -113,9 +112,11 @@ class RelaunchProcedure(
    * [com.facebook.react.ReactInstanceManager].
    */
   private fun replaceLaunchAssetFileIfNeeded(
-    reactApplication: ReactApplication, launchAssetFile: String) {
+    reactApplication: ReactApplication,
+    launchAssetFile: String
+  ) {
     if (ReactFeatureFlags.enableBridgelessArchitecture) {
-      return;
+      return
     }
 
     val instanceManager = reactApplication.reactNativeHost.reactInstanceManager

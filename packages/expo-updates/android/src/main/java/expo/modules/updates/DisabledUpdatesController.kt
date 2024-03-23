@@ -33,6 +33,7 @@ class DisabledUpdatesController(
   private val fatalException: Exception?
 ) : IUpdatesController, UpdatesStateChangeEventSender {
   override var appContext: WeakReference<AppContext>? = null
+
   /** Keep the activity for [RecreateReactContextProcedure] to relaunch the app. */
   private var weakActivity: WeakReference<Activity>? = null
   override var shouldEmitJsEvents = false

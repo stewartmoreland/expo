@@ -42,6 +42,7 @@ class EnabledUpdatesController(
   override val updatesDirectory: File
 ) : IUpdatesController, UpdatesStateChangeEventSender {
   override var appContext: WeakReference<AppContext>? = null
+
   /** Keep the activity for [RelaunchProcedure] to relaunch the app. */
   private var weakActivity: WeakReference<Activity>? = null
   private val logger = UpdatesLogger(context)
