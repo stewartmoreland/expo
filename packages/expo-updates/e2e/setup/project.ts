@@ -32,6 +32,7 @@ function getExpoDependencyChunks({
     [
       'babel-preset-expo',
       'expo-application',
+      'expo-build-properties',
       'expo-device',
       'expo-eas-client',
       'expo-file-system',
@@ -431,6 +432,19 @@ function transformAppJsonForE2E(
   isTV: boolean
 ) {
   const plugins: any[] = ['expo-updates', '@config-plugins/detox'];
+  plugins.push(
+    [
+      "expo-build-properties",
+      {
+        ios: {
+          newArchEnabled: false
+        },
+        android: {
+          newArchEnabled: false
+        }
+      }
+    ],
+  );
   if (isTV) {
     plugins.push([
       '@react-native-tvos/config-tv',
